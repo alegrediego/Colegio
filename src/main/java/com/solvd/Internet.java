@@ -1,6 +1,6 @@
 package com.solvd;
 
-import com.solvd.Interface.Payments;
+import com.solvd.interfaces.Payments;
 
 public class Internet extends ServiceExpenses implements Payments {
     public String month;{

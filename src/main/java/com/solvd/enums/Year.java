@@ -1,4 +1,4 @@
-package com.solvd.Enum;
+package com.solvd.enums;
 
 public enum Year {
     FIRST("First"),
@@ -16,4 +16,7 @@ public enum Year {
 
     }
 
+    public String getName() {
+        return name;
+    }
 }

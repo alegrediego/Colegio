@@ -1,6 +1,6 @@
 package com.solvd;
 
-import com.solvd.Interface.Broken;
+import com.solvd.interfaces.Broken;
 
 public class Desk extends Furniture implements Broken {
 

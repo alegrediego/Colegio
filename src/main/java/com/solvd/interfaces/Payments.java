@@ -1,4 +1,4 @@
-package com.solvd.Interface;
+package com.solvd.interfaces;
 
 public interface Payments<P,N> {
 

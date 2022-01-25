@@ -1,17 +1,17 @@
-package com.solvd.Persons;
+package com.solvd.persons;
 
 import com.solvd.Person;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-
+import com.solvd.enums.Subjects;
 
     public class Students extends Person {
-
-        private String Name;
+    private String Name;
     private String LastName;
     private String DNI;
     private Enum Year;
-    private Enum subjects;
+
+
 
     private static Logger log = Logger.getLogger(Students.class);
 
@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
         this.LastName = LastName;
         this.DNI = DNI;
         this.Year = Year;
-        this.subjects = subjects;
+        this.subjects = setSubjects();
         String sp = StringUtils.SPACE ;
         log.debug("Student"+sp+Name+sp+LastName+sp+DNI+sp+Year+sp+subjects);
     }
@@ -31,8 +31,12 @@ import org.apache.log4j.Logger;
     */
     };
 
+        public Subjects setSubjects() {
+            this.subjects = (Subjects) subjects;
+            return null;
+        }
 
-    public Object getName(){
+        public Object getName(){
 
     return Name+" "+LastName;
     }

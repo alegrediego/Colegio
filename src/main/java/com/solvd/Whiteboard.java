@@ -1,6 +1,6 @@
 package com.solvd;
 
-import com.solvd.Interface.Broken;
+import com.solvd.interfaces.Broken;
 
 public class Whiteboard extends Furniture implements Broken {
     public String getWhiteboardNumber() {

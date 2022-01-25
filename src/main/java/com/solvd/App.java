@@ -1,11 +1,12 @@
 package com.solvd;
 
-import com.solvd.Enum.Level;
-import com.solvd.Enum.Subjects;
-import com.solvd.Enum.Year;
-import com.solvd.Persons.Assistant;
-import com.solvd.Persons.Students;
-import com.solvd.Persons.Teachers;
+import com.solvd.enums.Level;
+import com.solvd.enums.Subjects;
+import com.solvd.exceptions.Exception;
+import com.solvd.persons.Assistant;
+import com.solvd.persons.Students;
+import com.solvd.persons.Teachers;
+import com.solvd.stringutilsandfileutils.Util;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.commons.io.FileUtils;
@@ -13,49 +14,35 @@ import org.apache.commons.io.FileUtils;
 
 
 import java.io.*;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-
 
 
 public class App {
 
     private static final Logger log = Logger.getLogger(App.class);
 
-    public static void main(String[] args) throws IOException {
-
-        Year[] levelyear = Year.values();
-        for (int i = 0; i < levelyear.length; i++) {
-
-        }
-
-        Subjects.subjects[] sub = Subjects.subjects.values();
-        for (int i = 0; i < sub.length; i++) {
-
-        }
+    public static void main(String[] args) throws IOException, Exception, Exception.esc1 {
 
 
-        Students aa = new Students("Diego", "Alegre", "33241378", levelyear[6], sub[0]);
-        Students ab = new Students("Nicolas", "Costurie", "45794147", levelyear[5], sub[2]);
-        Students ac = new Students("Romina", "Alegre", "30187946", levelyear[4], sub[1]);
-        Students ad = new Students("Camila", "Kusnier", "39487124", levelyear[3], sub[3]);
-        Students ae = new Students("Rosenda", "Yedro", "6137173", levelyear[0], sub[4]);
+        Students aa = new Students("Diego", "Alegre", "33241378", Level.ELEMENTARY_SCHOOL, Subjects.MATHS);
+        Students ab = new Students("Nicolas", "Costurie", "45794147", Level.HIGH_SCHOOL, Subjects.HISTORY);
+        Students ac = new Students("Romina", "Alegre", "30187946", Level.ACADEMIC, Subjects.GEOGRAPHY);
+        Students ad = new Students("Camila", "Kusnier", "39487124", Level.MIDDLE_SCHOOL, Subjects.MUSIC);
+        Students ae = new Students("Rosenda", "Yedro", "6137173", Level.WITHOUT_EDUCATION, Subjects.SCIENCE);
         log.info(StringUtils.EMPTY);
 
-        Level[] levels = Level.values();
-        for (int i = 0; i < levels.length; i++) {
-        }
 
-
-        Teachers ba = new Teachers("Juan", "Perez", "20154798", levels[5], sub[5]);
-        Teachers bb = new Teachers("Pedro", "Ramirez", "18546319", levels[4], sub[2]);
-        Teachers bc = new Teachers("Rodrigo", "Malo", "25840323", levels[3], sub[3]);
         log.info(StringUtils.EMPTY);
 
-        Assistant ca = new Assistant("Juana", "Molina", "15784987", levels[2], 1205);
-        Assistant cb = new Assistant("Rosa", "Rodriguez", "92784555", levels[0], 1137);
-        Assistant cc = new Assistant("Manuela", "Gonzalez", "19785143", levels[1], 1067);
+
+        Teachers ba = new Teachers("Juan", "Perez", "20154798", Level.POSTGRADUATE, Subjects.GEOGRAPHY);
+        Teachers bb = new Teachers("Pedro", "Ramirez", "18546319", Level.HIGH_SCHOOL, Subjects.SCIENCE);
+        Teachers bc = new Teachers("Rodrigo", "Malo", "25840323", Level.ACADEMIC, Subjects.HISTORY);
+        log.info(StringUtils.EMPTY);
+
+        Assistant ca = new Assistant("Juana", "Molina", "15784987", Level.MIDDLE_SCHOOL, 1205);
+        Assistant cb = new Assistant("Rosa", "Rodriguez", "92784555", Level.WITHOUT_EDUCATION, 1137);
+        Assistant cc = new Assistant("Manuela", "Gonzalez", "19785143", Level.ELEMENTARY_SCHOOL, 1067);
         log.info(StringUtils.EMPTY);
 
 
@@ -186,43 +173,20 @@ public class App {
         log.info(StringUtils.EMPTY);
 
 
+        Util fileutil = new Util();
+        Util.Count();
 
-        URL url = new URL("https://www.ole.com.ar/");
-        File file = new File("C:\\Users\\alegr\\IdeaProjects\\Diego Alegre\\Colegio\\log\\garbage.txt");
-        FileUtils.copyURLToFile(url,file);
-        String contents = FileUtils.readFileToString(file, StandardCharsets.UTF_8.name());
-        int f;
-        f = StringUtils.countMatches(FileUtils.readFileToString(file),"Maradona");
-        File file1 = new File("C:\\Users\\alegr\\IdeaProjects\\Diego Alegre\\Colegio\\log\\ElDiego.txt");
-        FileUtils.writeStringToFile(file1,"The name Maradona is "+f+" times on this page", "UTF-8");
+        Exception exce = new Exception();
+        Exception.esc();
 
-        log.info("The name Maradona is " +f+" times on this page");
+        Exception file = new Exception();
+        try {
+            file.setExtension("doc");
+        } catch (java.lang.Exception e) {
 
-
-
-
-
-
-
-                File file2 = new File("nothing.txt");
-                BufferedReader br;
-                try {
-                    java.io.FileReader fr = new java.io.FileReader(file2);
-                    br = new BufferedReader(fr);
-
-                    String line;
-
-                    while ((line = br.readLine()) != null) {
-                        log.info(line);
-                    }
-                } catch (FileNotFoundException e) {
-                    log.error("File not found: " + file2.toString());
-
-                }
-
-                String s = FileUtils.getUserDirectoryPath();
-                log.info(s);
-
-            }
         }
+    }
+}
+
+
 

@@ -1,27 +1,33 @@
 package com.solvd;
 
-import com.solvd.Enum.Level;
-import com.solvd.Enum.Subjects;
-import com.solvd.Enum.Year;
-import com.solvd.Interface.Attendance;
-import com.solvd.Interface.Disease;
-import com.solvd.Interface.Presenteeism;
+import com.solvd.enums.Level;
+import com.solvd.enums.Subjects;
+import com.solvd.enums.Year;
+import com.solvd.interfaces.Attendance;
+import com.solvd.interfaces.Disease;
+import com.solvd.interfaces.Presenteeism;
 
-public abstract class Person implements Attendance, Disease, Presenteeism {
+public abstract class Person implements Attendance, Disease, Presenteeism{
 
-    private com.solvd.Enum.Level Level;
+    private Level Level;
 
     public Level getLevel(){
         return Level;
     }
 
-    private com.solvd.Enum.Year Year;
+    private Year Year;
 
     public Year getYear() { return Year;}
 
-    private Subjects subjects;
+    public void setSubjects(Subjects subjects) {
+        this.subjects = subjects;
+    }
+
+    public Subjects subjects;
 
     public Subjects getSubjects() {return subjects;}
+
+
 
     @Override
     public String yes() {

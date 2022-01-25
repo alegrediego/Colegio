@@ -1,4 +1,4 @@
-package com.solvd.Persons;
+package com.solvd.persons;
 
 import com.solvd.Person;
 import org.apache.commons.lang3.StringUtils;
